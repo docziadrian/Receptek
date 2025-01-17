@@ -17,12 +17,12 @@ CREATE TABLE IF NOT EXISTS recepies (
 
 -- Insert 50 food recipes
 INSERT INTO recepies (receptNev, hozzavalok, leiras, elkeszitesiIdo, fozesiIdo, osszesIdo) VALUES
-('Spaghetti Carbonara', 'Spaghetti, Eggs, Parmesan cheese, Pancetta, Garlic, Salt, Pepper', '1. Cook spaghetti. 2. Fry pancetta with garlic. 3. Mix eggs and cheese. 4. Combine spaghetti, pancetta, and egg mixture. 5. Season with salt and pepper.', 10, 20, 30),
-('Chicken Curry', 'Chicken, Curry powder, Coconut milk, Onion, Garlic, Ginger, Salt, Pepper, Oil', '1. Fry onion, garlic, and ginger. 2. Add chicken and cook. 3. Add curry powder. 4. Pour in coconut milk. 5. Simmer until chicken is cooked through. 6. Season with salt and pepper.', 15, 30, 45),
-('Beef Stroganoff', 'Beef, Onion, Mushrooms, Sour cream, Beef stock, Butter, Flour, Salt, Pepper', '1. Fry beef strips. 2. Cook onions and mushrooms. 3. Add beef stock and simmer. 4. Stir in sour cream. 5. Thicken with flour and butter mixture. 6. Season with salt and pepper.', 20, 25, 45),
-('Vegetarian Chili', 'Red beans, Black beans, Corn, Tomatoes, Onion, Garlic, Chili powder, Cumin, Salt, Pepper, Oil', '1. Fry onions and garlic. 2. Add tomatoes and spices. 3. Pour in beans and corn. 4. Simmer until vegetables are tender. 5. Season with salt and pepper.', 10, 40, 50),
-/* Repeat the above structure for the remaining 46 entries */
-('Margherita Pizza', 'Pizza dough, Tomato sauce, Mozzarella cheese, Basil, Olive oil, Salt', '1. Spread tomato sauce on dough. 2. Add mozzarella cheese. 3. Bake in the oven. 4. Top with fresh basil and drizzle of olive oil. 5. Season with salt.', 15, 20, 35);
+('Spaghetti Carbonara', 'Spagetti, Tojás, Parmezán sajt, Pancetta, Fokhagyma, Só, Bors', '1. Főzd meg a spagettit. 2. Pirítsd meg a pancettát fokhagymával. 3. Keverd össze a tojást és a sajtot. 4. Keverd össze a spagettit, a pancettát és a tojásos keveréket. 5. Ízesítsd sóval és borssal.', 10, 20, 30),
+('Chicken Curry', 'Csirke, Curry por, Kókusztej, Hagyma, Fokhagyma, Gyömbér, Só, Bors, Olaj', '1. Pirítsd meg a hagymát, fokhagymát és gyömbért. 2. Add hozzá a csirkét és süsd meg. 3. Add hozzá a curry port. 4. Öntsd bele a kókusztejet. 5. Párold, amíg a csirke teljesen meg nem fő. 6. Ízesítsd sóval és borssal.', 15, 30, 45),
+('Beef Stroganoff', 'Marhahús, Hagyma, Gomba, Tejföl, Marhahús alaplé, Vaj, Liszt, Só, Bors', '1. Pirítsd meg a marhahús csíkokat. 2. Főzd meg a hagymát és a gombát. 3. Add hozzá a marhahús alaplét és párold. 4. Keverd bele a tejfölt. 5. Sűrítsd a vaj és liszt keverékével. 6. Ízesítsd sóval és borssal.', 20, 25, 45),
+('Vegetarian Chili', 'Vörösbab, Fekete bab, Kukorica, Paradicsom, Hagyma, Fokhagyma, Chili por, Kömény, Só, Bors, Olaj', '1. Pirítsd meg a hagymát és a fokhagymát. 2. Add hozzá a paradicsomot és a fűszereket. 3. Öntsd bele a babot és a kukoricát. 4. Párold, amíg a zöldségek meg nem puhulnak. 5. Ízesítsd sóval és borssal.', 10, 40, 50),
+/* Ismételd meg a fenti struktúrát a fennmaradó 46 bejegyzéshez */
+('Pizza Margherita', 'Pizzatészta, Paradicsomszósz, Mozzarella sajt, Bazsalikom, Olívaolaj, Só', '1. Kend meg a tésztát paradicsomszósszal. 2. Add hozzá a mozzarellát. 3. Sütőben süsd meg. 4. Díszítsd friss bazsalikommal és olívaolajjal. 5. Ízesítsd sóval.', 15, 20, 35);
 
 -- Continue with additional 45 recipes...
 
