@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using MySqlX.XDevAPI.Common;
 using System;
 using System.Collections.Generic;
 
@@ -82,5 +83,29 @@ namespace ConsoleApp1
             }
             return results;
         }
+
+        public void TableInsertForrasokba(string tablaNeve)
+        {
+            try
+            {
+                MySqlCommand parancs = connection.CreateCommand();
+                parancs.CommandText = $"INSERT INTO forrasok(id,forras_nev) VALUES(4, Barbossa)";
+                parancs.ExecuteNonQuery();
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine("Hiba a kapcsolódás vagy a lekérdezés során: " + error.Message);
+            }
+            finally
+            {
+                if (connection != null && connection.State == System.Data.ConnectionState.Open)
+                {
+                    connection.Close();
+                    Console.WriteLine("Kapcsolat sikeresen lezárva.");
+                }
+            }
+            
+        }
+    }
     }
 }

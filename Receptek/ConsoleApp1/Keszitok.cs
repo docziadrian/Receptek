@@ -25,6 +25,12 @@ namespace ConsoleApp1
             this.lakcim = lakcim;
             this.eletkor = eletkor;
         }
+
+        public override string ToString()
+        {
+            return $"Készítő neve: {this.nev}";
+        }
     }
+
 
 }

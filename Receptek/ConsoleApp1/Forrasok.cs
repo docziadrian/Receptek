@@ -19,5 +19,10 @@ namespace ConsoleApp1
             this.id = id;
             this.nev = nev;
         }
+
+        public override string ToString()
+        {
+            return $"Forrás neve: {this.nev}";
+        }
     }
 }
