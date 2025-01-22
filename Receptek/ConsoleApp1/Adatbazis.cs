@@ -22,7 +22,7 @@ namespace ConsoleApp1
             }
         }
 
-        public static List<Dictionary<string, object>> TableSelect(string tableName)
+        public static List<string> TableSelect(string tableName)
         {
             var results = new List<Dictionary<string, object>>();
             var osszesRecept = new List<string>();
@@ -52,19 +52,7 @@ namespace ConsoleApp1
                     }
                 }
 
-                int szamlalo = 0;
-                string sor = "";
-                foreach (string recept in osszesRecept)
-                {
-                    szamlalo++;
-                    sor += recept + ";";
-                    if (szamlalo == 9)
-                    {
-                        Receptek.ReceptBeolvasas(sor);
-                        sor = "";
-                        szamlalo = 0;
-                    }
-                }
+                
 
                 
             }
@@ -80,7 +68,7 @@ namespace ConsoleApp1
                     Console.WriteLine("Kapcsolat sikeresen lezárva.");
                 }
             }
-            return results;
+            return osszesRecept;
         }
     }
 }

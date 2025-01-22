@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -172,11 +173,24 @@ namespace ConsoleApp1
             Forras_id = forras_id;
         }
 
-        public static void ReceptBeolvasas(string sor)
+        public static List<Receptek> ReceptBeolvasas(string sor)
         {
-            var id = sor.Split(';')[0];
-            Console.WriteLine(id);
-            
+            List<Receptek> osszesRecept = new List<Receptek>();
+
+            int id = Convert.ToInt32(sor.Split(';')[0]);
+            string receptNev = sor.Split(';')[1];
+            string hozzavalok = sor.Split(';')[2];
+            string leiras = sor.Split(';')[3];
+            int elokeszitesiIdo = Convert.ToInt32(sor.Split(';')[4]);
+            int fozesiIdo = Convert.ToInt32(sor.Split(';')[5]);
+            int osszesIdo = Convert.ToInt32(sor.Split(';')[6]);
+            int keszitoId = Convert.ToInt32(sor.Split(';')[7]);
+            int forrasId = Convert.ToInt32(sor.Split(';')[8]);
+
+            Receptek recept = new Receptek(id, receptNev, hozzavalok, leiras, elokeszitesiIdo, fozesiIdo, osszesIdo, keszitoId, forrasId);
+            Console.Write(recept.receptNev);
+            osszesRecept.Add(recept);
+            return osszesRecept;
         }
 
         public override string ToString()
