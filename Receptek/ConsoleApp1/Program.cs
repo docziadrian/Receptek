@@ -11,7 +11,41 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
             Adatbazis.KapcsolodasAdatbazishoz();
-            Adatbazis.TableSelect("receptek");
+            List<string> osszesRecept = Adatbazis.TableSelect("receptek");
+           
+            List<Receptek> beolvasottReceptek = BeolvasasReceptek(osszesRecept);
+
+            foreach (var item in beolvasottReceptek)
+            {
+                Console.Write(item);
+            }
+
+
+
+            List<Receptek> BeolvasasReceptek(List<string> receptek)
+            {
+                List<Receptek> osszesLocal = new List<Receptek>();
+                int szamlalo = 0;
+                string sor = "";
+                foreach (string recept in receptek)
+                {
+                    szamlalo++;
+                    sor += recept + ";";
+                    if (szamlalo == 9)
+                    {
+                        Receptek.ReceptBeolvasas(sor);
+                        sor = "";
+                        szamlalo = 0;
+                    }
+                }
+
+                foreach (Receptek recept in osszesLocal)
+                {
+                    Console.WriteLine(recept);
+                }
+
+                return osszesLocal;
+            }
         }
     }
 }
