@@ -96,6 +96,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Adatbazis.cs" />
+    <Compile Include="Forrasok.cs" />
+    <Compile Include="Keszitok.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Receptek.cs" />
