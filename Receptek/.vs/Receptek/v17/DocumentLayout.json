@@ -3,11 +3,11 @@
   "WorkspaceRootPath": "C:\\Users\\docziadrianmark\\Desktop\\!receptek\\Receptek\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{09702660-480B-47D8-A071-1968B26383A3}|ConsoleApp1\\ConsoleApp1.csproj|C:\\Users\\docziadrianmark\\Desktop\\!receptek\\Receptek\\consoleapp1\\receptek.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{09702660-480B-47D8-A071-1968B26383A3}|ConsoleApp1\\ConsoleApp1.csproj|c:\\users\\docziadrianmark\\desktop\\!receptek\\receptek\\consoleapp1\\receptek.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{09702660-480B-47D8-A071-1968B26383A3}|ConsoleApp1\\ConsoleApp1.csproj|solutionrelative:consoleapp1\\receptek.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{09702660-480B-47D8-A071-1968B26383A3}|ConsoleApp1\\ConsoleApp1.csproj|c:\\users\\docziadrianmark\\desktop\\!receptek\\receptek\\consoleapp1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{09702660-480B-47D8-A071-1968B26383A3}|ConsoleApp1\\ConsoleApp1.csproj|C:\\Users\\docziadrianmark\\Desktop\\!receptek\\Receptek\\consoleapp1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{09702660-480B-47D8-A071-1968B26383A3}|ConsoleApp1\\ConsoleApp1.csproj|solutionrelative:consoleapp1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -40,7 +40,7 @@
               "RelativeDocumentMoniker": "ConsoleApp1\\Receptek.cs",
               "ToolTip": "C:\\Users\\docziadrianmark\\Desktop\\!receptek\\Receptek\\ConsoleApp1\\Receptek.cs",
               "RelativeToolTip": "ConsoleApp1\\Receptek.cs",
-              "ViewState": "AgIAAKMAAAAAAAAAAAAUwL4AAAAgAAAAAAAAAA==",
+              "ViewState": "AgIAAHEAAAAAAAAAAAAAwI8AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-17T08:39:05.459Z",
               "EditorCaption": ""
@@ -53,7 +53,7 @@
               "RelativeDocumentMoniker": "ConsoleApp1\\Program.cs",
               "ToolTip": "C:\\Users\\docziadrianmark\\Desktop\\!receptek\\Receptek\\ConsoleApp1\\Program.cs",
               "RelativeToolTip": "ConsoleApp1\\Program.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAgwCMAAAA2AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAiwA8AAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-17T08:34:26.062Z",
               "EditorCaption": ""
