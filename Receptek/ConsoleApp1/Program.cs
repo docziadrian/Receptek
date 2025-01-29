@@ -10,6 +10,8 @@ namespace ConsoleApp1
             Adatbazis.KapcsolodasAdatbazishoz();
             List<string> osszesRecept = Adatbazis.TableSelect("receptek");
             List<Receptek> beolvasottReceptek = BeolvasasReceptek(osszesRecept);
+            Adatbazis.TableInsertKeszitok();
+            Adatbazis.TableInsertReceptek();
 
             foreach (var item in beolvasottReceptek)
             {

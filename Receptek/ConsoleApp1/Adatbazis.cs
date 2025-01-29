@@ -72,28 +72,134 @@ namespace ConsoleApp1
             return osszesRecept;
         }
 
-        public void TableInsertForrasokba(string tablaNeve)
+        public static void TableInsertForrasokba()
         {
+
+            Console.WriteLine("Add meg az új forrás nevét: ");
+            string ujForras = Console.ReadLine();
+
             try
             {
-                MySqlCommand parancs = connection.CreateCommand();
-                parancs.CommandText = $"INSERT INTO forrasok(id,forras_nev) VALUES(4, Barbossa)";
-                parancs.ExecuteNonQuery();
+                using (MySqlCommand commandInsert = new MySqlCommand($"insert into forrasok (forras_nev) values (@forras_nev)", connection))
+                {
+                    //Paraméterként adjuk meg az utasítás értékeit.
+                    commandInsert.Parameters.AddWithValue("@forras_nev", ujForras);
+                    //parancs végrehajtása:
+                    commandInsert.ExecuteNonQuery();
+
+                    Console.WriteLine("Sikeres INSERT!");
+
+                    //Lista újratöltés...
+                    TableSelect("forrasok");
+                    
+                }
+            }
+            catch (MySqlException mySqlError)
+            {
+                Console.WriteLine("Sikertelen INSERT");
+                Console.WriteLine(mySqlError);
             }
             catch (Exception error)
             {
-                Console.WriteLine("Hiba a kapcsolódás vagy a lekérdezés során: " + error.Message);
+                Console.WriteLine("Sikertelen INSERT");
+                Console.WriteLine(error);
             }
-            finally
+        }
+        public static void TableInsertReceptek()
+        {
+
+            Console.WriteLine("Add meg az új recept nevét: ");
+            string ujRecept = Console.ReadLine();
+            Console.WriteLine("Add meg az új hozzávalókat vesszővel elválasztva: ");
+            string ujHozzavalo = Console.ReadLine();
+            Console.WriteLine("Add meg az új leirást: ");
+            string ujLeiras = Console.ReadLine();
+            Console.WriteLine("Add meg az új elkészítési időt: ");
+            int ujElkeszitesiIdo = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Add meg az új főzési időt: ");
+            int ujFozesiIdo = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Add meg az új készítő IDjét: ");
+            int ujKeszitoID = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Add meg az új forrás IDjét: ");
+            int ujForrasID = Convert.ToInt32(Console.ReadLine());
+            int ujOsszesIdo = ujFozesiIdo + ujElkeszitesiIdo;
+
+            try
             {
-                if (connection != null && connection.State == System.Data.ConnectionState.Open)
+                connection.Open();
+                using (MySqlCommand commandInsert = new MySqlCommand($"insert into receptek (receptNev, hozzavalok, leiras, elokeszitesIdo, fozesIdo, osszesIdo, keszito_id, forras_id) values (@receptNev, @hozzavalok, @leiras, @elokeszitesIdo, @fozesIdo, @osszesIdo, @keszito_id, @forras_id)", connection))
                 {
-                    connection.Close();
-                    Console.WriteLine("Kapcsolat sikeresen lezárva.");
+                    //Paraméterként adjuk meg az utasítás értékeit.
+                    commandInsert.Parameters.AddWithValue("@receptNev", ujRecept);
+                    commandInsert.Parameters.AddWithValue("@hozzavalok", ujHozzavalo);
+                    commandInsert.Parameters.AddWithValue("@leiras", ujLeiras);
+                    commandInsert.Parameters.AddWithValue("@elokeszitesIdo", ujElkeszitesiIdo);
+                    commandInsert.Parameters.AddWithValue("@fozesIdo", ujFozesiIdo);
+                    commandInsert.Parameters.AddWithValue("@osszesIdo", ujOsszesIdo);
+                    commandInsert.Parameters.AddWithValue("@keszito_id", ujKeszitoID);
+                    commandInsert.Parameters.AddWithValue("@forras_id", ujForrasID);
+                    //parancs végrehajtása:
+                    commandInsert.ExecuteNonQuery();
+
+                    Console.WriteLine("Sikeres INSERT!");
+
+                    //Lista újratöltés...
+                    TableSelect("receőtek");
+
                 }
             }
-            
+            catch (MySqlException mySqlError)
+            {
+                Console.WriteLine("Sikertelen INSERT");
+                Console.WriteLine(mySqlError);
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine("Sikertelen INSERT");
+                Console.WriteLine(error);
+            }
+        }
+        public static void TableInsertKeszitok()
+        {
+
+            Console.WriteLine("Add meg az új készítő nevét: ");
+            string ujKeszito = Console.ReadLine();
+            Console.WriteLine("Add meg az új címét nevét: ");
+            string ujCim = Console.ReadLine();
+            Console.WriteLine("Add meg az új életkor nevét: ");
+            int ujEletkor = Convert.ToInt32(Console.ReadLine());
+
+
+            try
+            {
+                connection.Open();
+                using (MySqlCommand commandInsert = new MySqlCommand($"insert into keszitok (nev, cim, eletkor) values (@nev, @cim, @eletkor)", connection))
+                {
+                    //Paraméterként adjuk meg az utasítás értékeit.
+                    commandInsert.Parameters.AddWithValue("@nev", ujKeszito);
+                    commandInsert.Parameters.AddWithValue("@cim", ujCim);
+                    commandInsert.Parameters.AddWithValue("@eletkor", ujEletkor);
+                    //parancs végrehajtása:
+                    commandInsert.ExecuteNonQuery();
+
+                    Console.WriteLine("Sikeres INSERT!");
+
+                    //Lista újratöltés...
+                    TableSelect("keszitok");
+
+                }
+            }
+            catch (MySqlException mySqlError)
+            {
+                Console.WriteLine("Sikertelen INSERT");
+                Console.WriteLine(mySqlError);
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine("Sikertelen INSERT");
+                Console.WriteLine(error);
+            }
         }
     }
-    }
+    
 }
