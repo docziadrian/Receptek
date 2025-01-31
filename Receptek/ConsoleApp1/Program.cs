@@ -13,12 +13,34 @@ namespace ConsoleApp1
             /*Adatbazis.TableInsertKeszitok(); Insert a készítők táblába
             Adatbazis.TableInsertReceptek();    Insert a receptek táblába
             Adatbazis.TableInsertForrasokba(); Insert a források táblába*/
-
+            KeszitoKereses();
             foreach (var item in beolvasottReceptek)
             {
                 Console.WriteLine(item);
             }
 
+        }
+
+        private static void KeszitoKereses()
+        {
+            int osszesID = 0;//osszesKeszitok.length;
+            Console.WriteLine($"Adj meg egy azonosítot a készítőhöz, a következő intervallumba (1-{osszesID+1})!");
+        bekeres:
+            int keresettID = Convert.ToInt32(Console.ReadLine());
+            if (keresettID <= 0 || keresettID < osszesID + 1)
+            {
+                Console.WriteLine($"Hibás adat! Adj meg egy azonosítot a készítőhöz, a következő intervallumba (1-{osszesID + 1})!");
+                goto bekeres;
+            }
+            else { 
+                KeszitoKereso(keresettID, out string nev);
+            }
+        }
+
+        private static void KeszitoKereso(int keresettID, out string nev)
+        {
+            Console.WriteLine("Keressük a készítőt...");
+            nev = Console.ReadLine();
         }
 
         static List<Receptek> BeolvasasReceptek(List<string> receptek)
@@ -54,5 +76,7 @@ namespace ConsoleApp1
 
             return osszesLocal;
         }
+
+
     }
 }
