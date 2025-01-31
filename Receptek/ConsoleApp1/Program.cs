@@ -12,12 +12,13 @@ namespace ConsoleApp1
             Adatbazis.KapcsolodasAdatbazishoz();
             List<string> osszesRecept = Adatbazis.TableSelect("receptek");
             List<Receptek> beolvasottReceptek = BeolvasasReceptek(osszesRecept);
+            Adatbazis.KapcsolodasAdatbazishoz();
             List<string> osszesKeszitok = Adatbazis.TableSelect("keszitok");
             List<Keszitok> beolvasottKeszitok = BeolvasasKeszitok(osszesKeszitok);
             /*Adatbazis.TableInsertKeszitok(); Insert a készítők táblába
             Adatbazis.TableInsertReceptek();    Insert a receptek táblába
             Adatbazis.TableInsertForrasokba(); Insert a források táblába*/
-            KeszitoKereses(beolvasottKeszitok);
+           
 
 
             void ReceptDarabszam()
@@ -57,6 +58,7 @@ namespace ConsoleApp1
             ReceptDarabszam();
             ReceptValogatas();
             SzeretemAChilit();
+            KeszitoKereses(beolvasottKeszitok);
             Console.ReadLine();
         }
         
@@ -67,13 +69,14 @@ namespace ConsoleApp1
             Console.WriteLine($"Adj meg egy azonosítot a készítőhöz, a következő intervallumba (1-{osszesID+1})!");
             bekeres:
             int keresettID = Convert.ToInt32(Console.ReadLine());
-            if (keresettID <= 0 || keresettID < osszesID + 1)
+            if (keresettID <= 0 || keresettID > osszesID + 1)
             {
                 Console.WriteLine($"Hibás adat! Adj meg egy azonosítot a készítőhöz, a következő intervallumba (1-{osszesID + 1})!");
                 goto bekeres;
             }
             else { 
                 string nev = KeszitoKereso(keresettID, out string cim, beolvasottKeszitok);
+                Console.WriteLine($"A keresett készítő neve: {nev} | és a lakhelye: {cim}");
             }
         }
 

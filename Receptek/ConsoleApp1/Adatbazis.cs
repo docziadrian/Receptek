@@ -29,6 +29,7 @@ namespace ConsoleApp1
             var osszesRecept = new List<string>();
             try
             {
+                
                 using (MySqlCommand selectCommand = new MySqlCommand($"SELECT * FROM {tableName};", connection))
                 {
                     using (MySqlDataReader dataReader = selectCommand.ExecuteReader())

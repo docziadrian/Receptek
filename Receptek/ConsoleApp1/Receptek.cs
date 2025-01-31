@@ -142,7 +142,7 @@ namespace ConsoleApp1
 
         public override string ToString()
         {
-            return $"Recept neve: {ReceptNev}, \n Hozzávalók: {Hozzavalok}";
+            return $"Recept neve: {ReceptNev}, \n Hozzávalók: {Hozzavalok} \n Leírás: {Leiras} \n Összes idő: {OsszesIdo}";
         }
     }
 }

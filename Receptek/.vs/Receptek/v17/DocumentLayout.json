@@ -22,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -53,14 +53,10 @@
               "RelativeDocumentMoniker": "ConsoleApp1\\Adatbazis.cs",
               "ToolTip": "C:\\Users\\bujakierikattila\\Desktop\\Asztal\\Receptek\\ConsoleApp1\\Adatbazis.cs",
               "RelativeToolTip": "ConsoleApp1\\Adatbazis.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAyAAAAAAAAAA==",
+              "ViewState": "AgIAADkAAAAAAAAAAAAowEQAAABGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-17T09:07:11.439Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
             },
             {
               "$type": "Document",
@@ -70,7 +66,7 @@
               "RelativeDocumentMoniker": "ConsoleApp1\\Program.cs",
               "ToolTip": "C:\\Users\\bujakierikattila\\Desktop\\Asztal\\Receptek\\ConsoleApp1\\Program.cs",
               "RelativeToolTip": "ConsoleApp1\\Program.cs",
-              "ViewState": "AgIAAFYAAAAAAAAAAAAwwEMAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAADgAAAAAAAAAAAAuwE0AAABZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-17T08:34:26.062Z",
               "EditorCaption": ""
