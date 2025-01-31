@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Mysqlx.Crud;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.Tracing;
 using System.Linq;
@@ -15,10 +16,43 @@ namespace ConsoleApp1
             Adatbazis.KapcsolodasAdatbazishoz();
             List<string> osszesKeszitok = Adatbazis.TableSelect("keszitok");
             List<Keszitok> beolvasottKeszitok = BeolvasasKeszitok(osszesKeszitok);
-            /*Adatbazis.TableInsertKeszitok(); Insert a készítők táblába
-            Adatbazis.TableInsertReceptek();    Insert a receptek táblába
-            Adatbazis.TableInsertForrasokba(); Insert a források táblába*/
-           
+            
+            int menupont = 999;
+            while (menupont != 0)
+            {
+                Console.WriteLine();
+                Console.WriteLine("Add meg, hogy mit szeretnél csinálni!\n\t 0 - Kilépés az applikációból!\n\t 1 - Adj hozzá adatot a készítők táblához! \n\t 2 - Adj hozzá adatot a források táblához! \n\t 3 - Adj hozzá adatot a receptek táblához! \n\t 4 - Megadjuk az eddig tárolt receptek darabszámát! \n\t 5 - Megadjuk az összes 35 percen belüli receptet! \n\t 6 - Megkeresi az összes olyan ételt ami tartalmazza a \"chili\" szót! \n\t 7 - Megkeresi az általad beadott azonosítón található séfet!");
+                menupont = Convert.ToInt32(Console.ReadLine());
+                switch (menupont)
+                {
+                    case(1):
+                        Adatbazis.TableInsertKeszitok(); 
+                        break;
+                    case(2):
+                        Adatbazis.TableInsertReceptek();
+                        break;
+                    case(3):
+                        Adatbazis.TableInsertForrasokba();
+                        break;
+                    case(4):
+                        ReceptDarabszam();
+                        break;
+                    case(5):
+                        ReceptValogatas();
+                        break;
+                    case(6):
+                        SzeretemAChilit();
+                        break;
+                    case(7):
+                        KeszitoKereses(beolvasottKeszitok);
+                        break;
+                    default:
+                        menupont = 0;
+                        Console.WriteLine("Kiléptetünk a programból!");
+                        break;
+
+                }
+            }
 
 
             void ReceptDarabszam()
@@ -55,10 +89,9 @@ namespace ConsoleApp1
                 Console.WriteLine(count > 3 ? "\tÚgy látszik, sok csípős ételünk van jelenleg" : "\tJelenleg nincs sok csípős ételünk");
             }
 
-            ReceptDarabszam();
-            ReceptValogatas();
-            SzeretemAChilit();
-            KeszitoKereses(beolvasottKeszitok);
+            
+            
+            
             Console.ReadLine();
         }
         
@@ -66,7 +99,7 @@ namespace ConsoleApp1
         private static void KeszitoKereses(List<Keszitok> beolvasottKeszitok)
         {
             int osszesID = beolvasottKeszitok.Count;
-            Console.WriteLine($"Adj meg egy azonosítot a készítőhöz, a következő intervallumba (1-{osszesID+1})!");
+            Console.WriteLine($"Adj meg egy azonosítot a készítőhöz, a következő intervallumba (1-{osszesID})!");
             bekeres:
             int keresettID = Convert.ToInt32(Console.ReadLine());
             if (keresettID <= 0 || keresettID > osszesID + 1)
