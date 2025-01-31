@@ -10,8 +10,9 @@ namespace ConsoleApp1
             Adatbazis.KapcsolodasAdatbazishoz();
             List<string> osszesRecept = Adatbazis.TableSelect("receptek");
             List<Receptek> beolvasottReceptek = BeolvasasReceptek(osszesRecept);
-            Adatbazis.TableInsertKeszitok();
-            Adatbazis.TableInsertReceptek();
+            /*Adatbazis.TableInsertKeszitok(); Insert a készítők táblába
+            Adatbazis.TableInsertReceptek();    Insert a receptek táblába
+            Adatbazis.TableInsertForrasokba(); Insert a források táblába*/
 
             foreach (var item in beolvasottReceptek)
             {

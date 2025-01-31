@@ -144,7 +144,7 @@ namespace ConsoleApp1
                     Console.WriteLine("Sikeres INSERT!");
 
                     //Lista újratöltés...
-                    TableSelect("receőtek");
+                    TableSelect("receptek");
 
                 }
             }
