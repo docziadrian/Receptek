@@ -21,7 +21,7 @@ namespace ConsoleApp1
             while (menupont != 0)
             {
                 Console.WriteLine();
-                Console.WriteLine("Add meg, hogy mit szeretnél csinálni!\n\t 0 - Kilépés az applikációból!\n\t 1 - Adj hozzá adatot a készítők táblához! \n\t 2 - Adj hozzá adatot a források táblához! \n\t 3 - Adj hozzá adatot a receptek táblához! \n\t 4 - Megadjuk az eddig tárolt receptek darabszámát! \n\t 5 - Megadjuk az összes 35 percen belüli receptet! \n\t 6 - Megkeresi az összes olyan ételt ami tartalmazza a \"chili\" szót! \n\t 7 - Megkeresi az általad beadott azonosítón található séfet!");
+                Console.WriteLine("Add meg, hogy mit szeretnél csinálni!\n\t 0 - Kilépés az applikációból!\n\t 1 - Adj hozzá adatot a készítők táblához! \n\t 2 - Adj hozzá adatot a források táblához! \n\t 3 - Adj hozzá adatot a receptek táblához! \n\t 4 - Megadjuk az eddig tárolt receptek darabszámát! \n\t 5 - Megadjuk az összes 35 percen belüli receptet! \n\t 6 - Megkeresi az összes olyan ételt ami tartalmazza a \"chili\" szót! \n\t 7 - Megkeresi az általad beadott azonosítón található séfet! \n\t 8 - Bekéri a készítő IDjét, majd ez alapján visszaadja a legelső receptet!");
                 menupont = Convert.ToInt32(Console.ReadLine());
                 switch (menupont)
                 {
@@ -45,6 +45,9 @@ namespace ConsoleApp1
                         break;
                     case(7):
                         KeszitoKereses(beolvasottKeszitok);
+                        break;
+                    case(8):
+                        RefFeladat(beolvasottReceptek, beolvasottKeszitok);
                         break;
                     default:
                         menupont = 0;
@@ -94,7 +97,24 @@ namespace ConsoleApp1
             
             Console.ReadLine();
         }
-        
+
+        private static void RefFeladat(List<Receptek> beolvasottReceptek, List<Keszitok> beolvasottKeszitok)
+        {
+            Console.WriteLine("Adj meg a készítő ID-jét!");
+            int keresettID = Convert.ToInt32(Console.ReadLine());
+            ReceptKereso(beolvasottReceptek, beolvasottKeszitok, ref keresettID);
+            Console.WriteLine($"{beolvasottReceptek[keresettID].ToString()}");
+
+        }
+
+        private static void ReceptKereso(List<Receptek> beolvasottReceptek, List<Keszitok> beolvasottKeszitok, ref int keresettID)
+        {
+            foreach (var recept in beolvasottReceptek)
+            {
+                keresettID = (recept.Keszito_id == keresettID) ? recept.Id : keresettID;
+                
+            }
+        }
 
         private static void KeszitoKereses(List<Keszitok> beolvasottKeszitok)
         {
