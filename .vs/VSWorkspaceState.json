@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Receptek",
+    "\\Receptek\\ConsoleApp1"
   ],
-  "SelectedNode": "\\Receptek.sln",
+  "SelectedNode": "\\Receptek\\ConsoleApp1\\Program.cs",
   "PreviewInSolutionExplorer": false
 }

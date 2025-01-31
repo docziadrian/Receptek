@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ConsoleApp1
 {
@@ -10,16 +11,81 @@ namespace ConsoleApp1
             Adatbazis.KapcsolodasAdatbazishoz();
             List<string> osszesRecept = Adatbazis.TableSelect("receptek");
             List<Receptek> beolvasottReceptek = BeolvasasReceptek(osszesRecept);
+            List<string> osszesKeszitok = Adatbazis.TableSelect("keszitok");
+            List<Keszitok> beolvasottKeszitok = BeolvasasKeszitok(osszesKeszitok);
             /*Adatbazis.TableInsertKeszitok(); Insert a készítők táblába
             Adatbazis.TableInsertReceptek();    Insert a receptek táblába
             Adatbazis.TableInsertForrasokba(); Insert a források táblába*/
 
-            foreach (var item in beolvasottReceptek)
+            void ReceptDarabszam()
             {
-                Console.WriteLine(item);
+                Console.WriteLine("\nEnnyi recept van az adatbázisban: " + beolvasottReceptek.Count);
             }
 
+            void ReceptValogatas()
+            {
+                Console.WriteLine("\nEzeknek az ételek 'gyors', azaz 35 percen belül elkészíthetők: ");
+                int ossz = 0;
+                foreach (Receptek item in beolvasottReceptek)
+                {
+                    if(item.OsszesIdo <= 35)
+                    {
+                        ossz++;
+                        Console.WriteLine("- " + item.ReceptNev);
+                    }
+                }
+                Console.WriteLine($"\t(Összesen: {ossz})");
+            }
+
+            void SzeretemAChilit()
+            {
+                //Meg kell keresni az összes olyan ételt, amely recept nevében szerepel a "chili" szó!
+                Console.WriteLine("\nEzekben az ételek csípősek: ");
+                var items = beolvasottReceptek.Where(item => item.ReceptNev.Contains("Chili"));
+                var count = beolvasottReceptek.Count(item => item.ReceptNev.Contains("Chili"));
+                foreach (var item in items) { 
+                    Console.WriteLine("-" + " " + item.ReceptNev);
+                }
+                Console.WriteLine($"\t(Összesen: {count})");
+                Console.WriteLine(count >3 ? "\tÚgy látszik, sok csípős ételünk van jelenleg" : "\tJelenleg nincs sok csípős ételünk");
+            }
+
+            ReceptDarabszam();
+            ReceptValogatas();
+            SzeretemAChilit();
+            Console.ReadLine();
+
         }
+
+        static List<Keszitok> BeolvasasKeszitok(List<string> keszitok)
+        {
+            List<Keszitok> osszesLocal = new List<Keszitok>();
+            int szamlalo = 0;
+            string sor = "";
+
+            foreach (string keszito in keszitok)
+            {
+                szamlalo++;
+                sor += keszito + ";";
+
+                if (szamlalo == 4)
+                {
+                    int id = Convert.ToInt32(sor.Split(';')[0]);
+                    string nev = sor.Split(';')[1];
+                    string cim = sor.Split(';')[2];
+                    int eletkor = Convert.ToInt32(sor.Split(';')[3]);
+
+                    Keszitok egyKeszito = new Keszitok(id, nev, cim, eletkor);
+                    osszesLocal.Add(egyKeszito);
+
+                    sor = "";
+                    szamlalo = 0;
+                }
+            }
+
+            return osszesLocal;
+        }
+
 
         static List<Receptek> BeolvasasReceptek(List<string> receptek)
         {
