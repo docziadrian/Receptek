@@ -25,6 +25,26 @@
           "SelectedChildIndex": 5,
           "Children": [
             {
+<<<<<<< HEAD
+=======
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Receptek.cs",
+              "DocumentMoniker": "C:\\Users\\bujakierikattila\\Desktop\\Asztal\\Receptek\\ConsoleApp1\\Receptek.cs",
+              "RelativeDocumentMoniker": "ConsoleApp1\\Receptek.cs",
+              "ToolTip": "C:\\Users\\bujakierikattila\\Desktop\\Asztal\\Receptek\\ConsoleApp1\\Receptek.cs",
+              "RelativeToolTip": "ConsoleApp1\\Receptek.cs",
+              "ViewState": "AgIAAEYAAAAAAAAAAAAcwI8AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-17T08:39:05.459Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+>>>>>>> b4ce62f612595f3c3ba77df89b3e9cbeb77448af
               "$type": "Bookmark",
               "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
             },
@@ -52,7 +72,11 @@
               "RelativeDocumentMoniker": "ConsoleApp1\\Adatbazis.cs",
               "ToolTip": "C:\\Users\\bujakierikattila\\Desktop\\Asztal\\Receptek\\ConsoleApp1\\Adatbazis.cs",
               "RelativeToolTip": "ConsoleApp1\\Adatbazis.cs",
+<<<<<<< HEAD
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAJIAAAAmAAAAAAAAAA==",
+=======
+              "ViewState": "AgIAAKMAAAAAAAAAAAAcwLwAAAAAAAAAAAAAAA==",
+>>>>>>> b4ce62f612595f3c3ba77df89b3e9cbeb77448af
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-17T09:07:11.439Z",
               "EditorCaption": ""
