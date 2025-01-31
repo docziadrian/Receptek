@@ -27,7 +27,6 @@ namespace ConsoleApp1
         {
             var results = new List<Dictionary<string, object>>();
             var osszesRecept = new List<string>();
-
             try
             {
                 using (MySqlCommand selectCommand = new MySqlCommand($"SELECT * FROM {tableName};", connection))

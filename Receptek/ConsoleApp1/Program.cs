@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
 using System.Linq;
 
 namespace ConsoleApp1
@@ -16,7 +17,7 @@ namespace ConsoleApp1
             /*Adatbazis.TableInsertKeszitok(); Insert a készítők táblába
             Adatbazis.TableInsertReceptek();    Insert a receptek táblába
             Adatbazis.TableInsertForrasokba(); Insert a források táblába*/
-            KeszitoKereses();
+            KeszitoKereses(beolvasottKeszitok);
 
 
             void ReceptDarabszam()
@@ -60,11 +61,11 @@ namespace ConsoleApp1
         }
         
 
-        private static void KeszitoKereses()
+        private static void KeszitoKereses(List<Keszitok> beolvasottKeszitok)
         {
-            int osszesID = 0;//osszesKeszitok.length;
+            int osszesID = beolvasottKeszitok.Count;
             Console.WriteLine($"Adj meg egy azonosítot a készítőhöz, a következő intervallumba (1-{osszesID+1})!");
-        bekeres:
+            bekeres:
             int keresettID = Convert.ToInt32(Console.ReadLine());
             if (keresettID <= 0 || keresettID < osszesID + 1)
             {
@@ -72,14 +73,23 @@ namespace ConsoleApp1
                 goto bekeres;
             }
             else { 
-                KeszitoKereso(keresettID, out string nev);
+                string nev = KeszitoKereso(keresettID, out string cim, beolvasottKeszitok);
             }
         }
 
-        private static void KeszitoKereso(int keresettID, out string nev)
+        private static string KeszitoKereso(int keresettID, out string cim, List<Keszitok> beolvasottKeszitok)
         {
             Console.WriteLine("Keressük a készítőt...");
-            nev = Console.ReadLine();
+            foreach (var keszito in beolvasottKeszitok)
+            {
+                if(keszito.id == keresettID)
+                {
+                    cim = keszito.lakcim;
+                    return keszito.nev;
+                }
+            }
+            cim = "Nincs lakhely";
+            return "Helytelen ID!";
         }
         static List<Keszitok> BeolvasasKeszitok(List<string> keszitok)
         {
