@@ -26,13 +26,19 @@ namespace ConsoleApp1
                 switch (menupont)
                 {
                     case(1):
-                        Adatbazis.TableInsertKeszitok(); 
+                        Adatbazis.TableInsertKeszitok();
+                        Adatbazis.KapcsolodasAdatbazishoz();
+                        osszesKeszitok = Adatbazis.TableSelect("keszitok");
+                        beolvasottKeszitok = BeolvasasKeszitok(osszesKeszitok);
                         break;
                     case(2):
-                        Adatbazis.TableInsertReceptek();
+                        Adatbazis.TableInsertForrasokba();
                         break;
                     case(3):
-                        Adatbazis.TableInsertForrasokba();
+                        Adatbazis.TableInsertReceptek();
+                        Adatbazis.KapcsolodasAdatbazishoz();
+                        osszesRecept = Adatbazis.TableSelect("receptek");
+                        beolvasottReceptek = BeolvasasReceptek(osszesRecept);
                         break;
                     case(4):
                         ReceptDarabszam();

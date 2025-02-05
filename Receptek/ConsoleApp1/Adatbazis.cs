@@ -15,7 +15,7 @@ namespace ConsoleApp1
             try
             {
                 connection.Open();
-                Console.WriteLine("Kapcsolat sikeresen megnyitva.");
+                
             }
             catch (Exception ex)
             {
@@ -66,7 +66,7 @@ namespace ConsoleApp1
                 if (connection != null && connection.State == System.Data.ConnectionState.Open)
                 {
                     connection.Close();
-                    Console.WriteLine("Kapcsolat sikeresen lezárva.");
+                   
                 }
             }
             return osszesRecept;
@@ -80,6 +80,7 @@ namespace ConsoleApp1
 
             try
             {
+                connection.Open();
                 using (MySqlCommand commandInsert = new MySqlCommand($"insert into forrasok (forras_nev) values (@forras_nev)", connection))
                 {
                     //Paraméterként adjuk meg az utasítás értékeit.
@@ -127,14 +128,14 @@ namespace ConsoleApp1
             try
             {
                 connection.Open();
-                using (MySqlCommand commandInsert = new MySqlCommand($"insert into receptek (receptNev, hozzavalok, leiras, elokeszitesIdo, fozesIdo, osszesIdo, keszito_id, forras_id) values (@receptNev, @hozzavalok, @leiras, @elokeszitesIdo, @fozesIdo, @osszesIdo, @keszito_id, @forras_id)", connection))
+                using (MySqlCommand commandInsert = new MySqlCommand($"insert into receptek (receptNev, hozzavalok, leiras, elokeszitesiIdo, fozesiIdo, osszesIdo, keszito_id, forras_id) values (@receptNev, @hozzavalok, @leiras, @elokeszitesiIdo, @fozesiIdo, @osszesIdo, @keszito_id, @forras_id)", connection))
                 {
                     //Paraméterként adjuk meg az utasítás értékeit.
                     commandInsert.Parameters.AddWithValue("@receptNev", ujRecept);
                     commandInsert.Parameters.AddWithValue("@hozzavalok", ujHozzavalo);
                     commandInsert.Parameters.AddWithValue("@leiras", ujLeiras);
-                    commandInsert.Parameters.AddWithValue("@elokeszitesIdo", ujElkeszitesiIdo);
-                    commandInsert.Parameters.AddWithValue("@fozesIdo", ujFozesiIdo);
+                    commandInsert.Parameters.AddWithValue("@elokeszitesiIdo", ujElkeszitesiIdo);
+                    commandInsert.Parameters.AddWithValue("@fozesiIdo", ujFozesiIdo);
                     commandInsert.Parameters.AddWithValue("@osszesIdo", ujOsszesIdo);
                     commandInsert.Parameters.AddWithValue("@keszito_id", ujKeszitoID);
                     commandInsert.Parameters.AddWithValue("@forras_id", ujForrasID);
